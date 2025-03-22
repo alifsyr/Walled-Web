@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import {
-    faWallet
-} from '@fortawesome/free-solid-svg-icons';
-import AmountInput from '..//components/AmountInput';
+import {faWallet} from '@fortawesome/free-solid-svg-icons';
+
+import AmountInput from './AmountInput';
 import CustomDropdown from './CustomDropdown';
+import NotesInput from './NotesInput';
 
 function TopUpForm() {
     const [amount, setAmount] = useState('');
@@ -48,17 +48,11 @@ function TopUpForm() {
                 />
 
                 {/* Notes Input */}
-                <div className="space-y-2">
-                    <label className="text-sm text-gray-600 font-medium">Notes:</label>
-                    <div className="bg-gray-50 rounded-lg shadow-sm">
-                        <textarea
-                            value={notes}
-                            onChange={(e) => setNotes(e.target.value)}
-                            className="w-full bg-transparent p-4 focus:outline-none resize-none min-h-[100px]"
-                            placeholder="Add notes here..."
-                        />
-                    </div>
-                </div>
+                <NotesInput
+                    label="Notes:"
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                />
 
                 {/* Transfer Button */}
                 <button
