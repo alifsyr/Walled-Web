@@ -75,10 +75,10 @@ function LoginForm() {
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
             </form>
-            <p className="mt-4 text-center">
-                Belum punya akun?{' '}
+            <p className="mt-4 text-left">
+                Don't have an account?{' '}
                 <a href="/signup" className="text-blue-500">
-                    Daftar di sini
+                    Sign up here
                 </a>
             </p>
         </div>
