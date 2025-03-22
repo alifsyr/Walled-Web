@@ -22,7 +22,6 @@ function TopUpForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission
         console.log(amount, paymentMethod, notes);
     };
 
@@ -30,7 +29,6 @@ function TopUpForm() {
         <div className="w-full max-w-md p-4">
             <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
 
-                {/* Amount Input */}
                 <AmountInput
                     label="Amount"
                     icon={faWallet}
@@ -40,7 +38,6 @@ function TopUpForm() {
                     placeholder="0"
                 />
 
-                {/* Payment Method Dropdown */}
                 <CustomDropdown
                     label="From"
                     value={paymentMethod}
@@ -48,14 +45,12 @@ function TopUpForm() {
                     onChange={handlePaymentSelect}
                 />
 
-                {/* Notes Input */}
                 <NotesInput
                     label="Notes:"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                 />
 
-                {/* Topup Button */}
                 <button
                     type="submit"
                     disabled={amount === '0' || amount === '' || amount === null}

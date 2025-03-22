@@ -9,7 +9,6 @@ function TransferForm() {
     const [accountNumber, setAccountNumber] = useState('Select Account');
     const [notes, setNotes] = useState('');
 
-    // Sample account options - replace with actual data from your backend
     const accountOptions = [
         { value: '1234567890', label: 'Account - 1234567890' },
         { value: '0987654321', label: 'Account - 0987654321' },
@@ -22,14 +21,12 @@ function TransferForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle transfer submission
         console.log(amount, accountNumber, notes);
     };
 
     return (
         <div className="w-full max-w-md p-4">
             <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
-                {/* Amount Input */}
                 <AmountInput
                     label="Amount"
                     icon={faWallet}
@@ -39,7 +36,6 @@ function TransferForm() {
                     placeholder="0"
                 />
 
-                {/* Account Number Dropdown */}
                 <CustomDropdown
                     label="To"
                     value={accountNumber}
@@ -47,7 +43,6 @@ function TransferForm() {
                     onChange={handleAccountSelect}
                 />
 
-                {/* Account Balance */}
                 <div className="flex items-center">
                     <label className="text-sm text-gray-600 font-medium">
                         Balance:
@@ -55,14 +50,12 @@ function TransferForm() {
                     <span className="text-sm font-medium text-[#26AA99] pl-2">IDR 1,000,000</span>
                 </div>
 
-                {/* Notes Input */}
                 <NotesInput
                     label="Notes:"
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                 />
 
-                {/* Transfer Button */}
                 <button
                     type="submit"
                     disabled={amount === '0' || amount === '' || amount === null}

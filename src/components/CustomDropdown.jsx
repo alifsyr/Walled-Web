@@ -39,7 +39,6 @@ function CustomDropdown({
                     </div>
                 </div>
 
-                {/* Dropdown Menu */}
                 {isOpen && (
                     <div className="absolute left-0 right-0 mt-2 bg-white rounded-xl shadow-lg overflow-hidden z-10">
                         {options.map((option) => (

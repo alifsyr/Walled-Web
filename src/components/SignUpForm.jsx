@@ -56,7 +56,6 @@ function SignUpForm() {
             });
 
             if (response.success) {
-                // Store token if provided
                 if (response.token) {
                     localStorage.setItem('authToken', response.token);
                 }

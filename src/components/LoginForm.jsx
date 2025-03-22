@@ -21,14 +21,12 @@ function LoginForm() {
             });
 
             if (data.success) {
-                // Store token if provided
                 if (data.token) {
                     localStorage.setItem('authToken', data.token);
                 }
                 navigate('/dashboard');
             }
         } catch (err) {
-            // Error handling is now managed by the hook
             console.error('Login failed:', err);
         }
     };
