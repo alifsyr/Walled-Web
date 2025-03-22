@@ -1,35 +1,34 @@
 import { useState } from 'react';
 import { faWallet } from '@fortawesome/free-solid-svg-icons';
-
-import AmountInput from '..//components/AmountInput';
+import AmountInput from './AmountInput';
 import CustomDropdown from './CustomDropdown';
 import NotesInput from './NotesInput';
 
-function TopUpForm() {
+function TransferForm() {
     const [amount, setAmount] = useState('');
-    const [paymentMethod, setPaymentMethod] = useState('Credit Card');
+    const [accountNumber, setAccountNumber] = useState('Select Account');
     const [notes, setNotes] = useState('');
 
-    const paymentOptions = [
-        { value: 'Credit Card', label: 'Credit Card' },
-        { value: 'Debit Card', label: 'Debit Card' },
-        { value: 'Bank Transfer', label: 'Bank Transfer' }
+    // Sample account options - replace with actual data from your backend
+    const accountOptions = [
+        { value: '1234567890', label: 'Account - 1234567890' },
+        { value: '0987654321', label: 'Account - 0987654321' },
+        { value: '5678901234', label: 'Account - 5678901234' }
     ];
 
-    const handlePaymentSelect = (option) => {
-        setPaymentMethod(option.value);
+    const handleAccountSelect = (option) => {
+        setAccountNumber(option.value);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission
-        console.log(amount, paymentMethod, notes);
+        // Handle transfer submission
+        console.log(amount, accountNumber, notes);
     };
 
     return (
         <div className="w-full max-w-md p-4">
             <form onSubmit={handleSubmit} className="flex flex-col space-y-6">
-
                 {/* Amount Input */}
                 <AmountInput
                     label="Amount"
@@ -40,13 +39,21 @@ function TopUpForm() {
                     placeholder="0"
                 />
 
-                {/* Payment Method Dropdown */}
+                {/* Account Number Dropdown */}
                 <CustomDropdown
-                    label="From"
-                    value={paymentMethod}
-                    options={paymentOptions}
-                    onChange={handlePaymentSelect}
+                    label="To"
+                    value={accountNumber}
+                    options={accountOptions}
+                    onChange={handleAccountSelect}
                 />
+
+                {/* Account Balance */}
+                <div className="flex items-center">
+                    <label className="text-sm text-gray-600 font-medium">
+                        Balance:
+                    </label>
+                    <span className="text-sm font-medium text-[#26AA99] pl-2">IDR 1,000,000</span>
+                </div>
 
                 {/* Notes Input */}
                 <NotesInput
@@ -55,17 +62,17 @@ function TopUpForm() {
                     onChange={(e) => setNotes(e.target.value)}
                 />
 
-                {/* Topup Button */}
+                {/* Transfer Button */}
                 <button
                     type="submit"
                     disabled={amount === '0' || amount === '' || amount === null}
                     className={`w-full ${amount === '0' || amount === '' || amount === null ? 'bg-gray-500' : 'bg-blue-500'} text-white py-4 rounded-lg ${amount === '0' || amount === '' || amount === null ? '' : 'hover:bg-blue-600'} transition-colors font-medium`}
                 >
-                    Top Up
+                    Transfer
                 </button>
             </form>
         </div>
     );
 }
 
-export default TopUpForm;
+export default TransferForm;
