@@ -18,9 +18,9 @@ function Navbar() {
             <div className="flex items-center space-x-8">
                 <nav className="flex items-center space-x-8">
                     <a
-                        href="/dashboard"
+                        href="/"
                         className={`transition-colors text-base ${
-                            currentPath === '/dashboard' 
+                            currentPath === '/' 
                             ? 'text-blue-500 font-medium' 
                             : 'text-gray-600 hover:text-gray-800'
                         }`}
