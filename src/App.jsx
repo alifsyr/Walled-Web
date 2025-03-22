@@ -6,6 +6,8 @@ import LoginPage from './pages/Login'
 import SignUpPage from './pages/SignUp'
 import TopUp from './pages/TopUp'
 import Transfer from './pages/Transfer'
+import Dashboard from './pages/Dashboard'
+import NotFound from './pages/NotFound'
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/top-up" element={<TopUp />} />
         <Route path="/transfer" element={<Transfer />} />
+        <Route path="/" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   )
